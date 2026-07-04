@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>جزوه تعاملی فارماکولوژی ۲ - داروهای دستگاه گوارش (جلسه ۴)</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;800&display=swap');
+
+    :root {
+      --primary:    #1a237e;
+      --secondary:  #283593;
+      --accent1:    #0277bd;
+      --accent2:    #00838f;
+      --accent3:    #6a1b9a;
+      --accent4:    #ad1457;
+      --accent5:    #e65100;
+      --bg:         #f0f4ff;
+      --card:       #ffffff;
+      --text:       #1a1a2e;
+      --muted:      #546e7a;
+      --border:     #c5cae9;
+      --green:      #1b5e20;
+      --greenlight: #e8f5e9;
+      --redlight:   #ffebee;
+      --red:        #b71c1c;
+      --yellowlight:#fff8e1;
+      --yellow:     #f57f17;
+      --bluelight:  #e3f2fd;
+      --blue:       #0d47a1;
+      --purplelight:#f3e5f5;
+      --purple:     #4a148c;
+      --teallight:  #e0f7fa;
+      --teal:       #006064;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Vazirmatn', Tahoma, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.9;
+      font-size: 15px;
+      padding-bottom: 120px; /* فضای فرار از تداخل نوار ابزار پایینی */
+    }
+
+    /* ===== COVER ===== */
+    .cover {
+      background: linear-gradient(135deg, #1a237e 0%, #283593 40%, #0277bd 100%);
+      color: white;
+      text-align: center;
+      padding: 60px 30px 50px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: -80px; left: -80px;
+      width: 300px; height: 300px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+    .cover::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; right: -60px;
+      width: 250px; height: 250px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+    .cover .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 50px;
+      padding: 6px 20px;
+      font-size: 13px;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+    }
+    .cover h1 {
+      font-size: 2.4em;
+      font-weight: 800;
+      margin-bottom: 10px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .cover h2 {
+      font-size: 1.3em;
+      font-weight: 400;
+      opacity: 0.9;
+      margin-bottom: 30px;
+    }
+    .cover .meta {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .cover .meta-item {
+      background: rgba(255,255,255,0.12);
+      border-radius: 12px;
+      padding: 10px 20px;
+      font-size: 13px;
+      text-align: right;
+    }
+    .cover .meta-item span { display: block; font-weight: 700; font-size: 15px; margin-top: 3px; }
+
+    /* ===== TOC ===== */
+    .toc {
+      background: white;
+      margin: 30px auto;
+      max-width: 900px;
+      border-radius: 16px;
+      padding: 30px 35px;
+      box-shadow: 0 4px 20px rgba(26,35,126,0.08);
+      border-right: 5px solid var(--primary);
+    }
+    .toc h3 {
+      font-size: 1.2em;
+      color: var(--primary);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .toc ol {
+      padding-right: 20px;
+    }
+    .toc ol li {
+      padding: 5px 0;
+      color: var(--accent1);
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .toc ol li a {
+      color: var(--accent1);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .toc ol li a:hover { color: var(--primary); }
+
+    /* ===== MAIN WRAPPER ===== */
+    .main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+
+    /* ===== SECTION HEADER ===== */
+    .section-header {
+      border-radius: 14px;
+      padding: 18px 25px;
+      margin: 40px 0 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: white;
+      font-size: 1.25em;
+      font-weight: 700;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+    }
+    .section-header .icon {
+      font-size: 1.5em;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      width: 44px; height: 44px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .sh-blue   { background: linear-gradient(135deg, #1565c0, #0288d1); }
+    .sh-purple { background: linear-gradient(135deg, #6a1b9a, #ab47bc); }
+    .sh-teal   { background: linear-gradient(135deg, #00695c, #26a69a); }
+    .sh-red    { background: linear-gradient(135deg, #b71c1c, #ef5350); }
+    .sh-orange { background: linear-gradient(135deg, #e65100, #ff7043); }
+    .sh-green  { background: linear-gradient(135deg, #1b5e20, #43a047); }
+    .sh-indigo { background: linear-gradient(135deg, #283593, #5c6bc0); }
+    .sh-pink   { background: linear-gradient(135deg, #880e4f, #e91e63); }
+    .sh-brown  { background: linear-gradient(135deg, #4e342e, #8d6e63); }
+    .sh-cyan   { background: linear-gradient(135deg, #006064, #00acc1); }
+
+    /* ===== SUBSECTION ===== */
+    .subsection {
+      background: white;
+      border-radius: 12px;
+      padding: 22px 25px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      border-top: 3px solid transparent;
+    }
+    .sub-blue   { border-top-color: #1565c0; }
+    .sub-purple { border-top-color: #6a1b9a; }
+    .sub-teal   { border-top-color: #00695c; }
+    .sub-red    { border-top-color: #b71c1c; }
+    .sub-orange { border-top-color: #e65100; }
+    .sub-green  { border-top-color: #1b5e20; }
+    .sub-indigo { border-top-color: #283593; }
+    .sub-pink   { border-top-color: #880e4f; }
+    .sub-brown  { border-top-color: #4e342e; }
+    .sub-cyan   { border-top-color: #006064; }
+
+    .subsection h4 {
+      font-size: 1.05em;
+      font-weight: 700;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px dashed var(--border);
+      color: var(--secondary);
+    }
+
+    /* ===== INFO BOX ===== */
+    .infobox {
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin: 14px 0;
+      display: flex;
+      gap: 12px;
+      font-size: 14px;
+    }
+    .infobox .ib-icon { font-size: 1.3em; flex-shrink: 0; margin-top: 1px; }
+    .ib-blue   { background: var(--bluelight);   border-right: 4px solid #1565c0; color: #0d1b5e; }
+    .ib-green  { background: var(--greenlight);  border-right: 4px solid #2e7d32; color: #1b3a1f; }
+    .ib-red    { background: var(--redlight);    border-right: 4px solid #c62828; color: #5c0000; }
+    .ib-yellow { background: var(--yellowlight); border-right: 4px solid #f9a825; color: #4a2c00; }
+    .ib-purple { background: var(--purplelight); border-right: 4px solid #6a1b9a; color: #2d0048; }
+    .ib-teal   { background: var(--teallight);   border-right: 4px solid #006064; color: #003033; }
+
+    /* ===== LIST STYLES (REWRITTEN FOR SAFARI/MOBILE TIGHTNESS) ===== */
+    .list-styled {
+      list-style: none;
+      padding: 0;
+      margin: 8px 0;
+    }
+    .list-styled li {
+      padding: 6px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 14px;
+      border-bottom: 1px dotted #e8eaf6;
+    }
+    .list-styled li:last-child { border-bottom: none; }
+    .list-styled li::before {
+      content: '◈';
+      color: var(--accent1);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .list-styled.green li::before  { color: #2e7d32; }
+    .list-styled.red li::before    { color: #c62828; }
+    .list-styled.purple li::before { color: #6a1b9a; }
+    .list-styled.teal li::before   { color: #006064; }
+    .list-styled.orange li::before { color: #e65100; }
+
+    .li-content {
+      flex: 1;
+      display: inline;
+      line-height: 1.8;
+      color: var(--text);
+    }
+
+    /* ===== TAGS / PILLS ===== */
+    .tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      margin: 2px 2px;
+    }
+    .tag-blue   { background: #e3f2fd; color: #0d47a1; }
+    .tag-red    { background: #ffebee; color: #b71c1c; }
+    .tag-green  { background: #e8f5e9; color: #1b5e20; }
+    .tag-purple { background: #f3e5f5; color: #4a148c; }
+    .tag-orange { background: #fff3e0; color: #e65100; }
+    .tag-teal   { background: #e0f7fa; color: #006064; }
+    .tag-yellow { background: #fff8e1; color: #f57f17; }
+    .tag-pink   { background: #fce4ec; color: #880e4f; }
+
+    /* ===== TABLE ===== */
+    .table-wrap { overflow-x: auto; margin: 16px 0; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+    }
+    table thead tr {
+      background: var(--primary);
+      color: white;
+    }
+    table thead th {
+      padding: 12px 14px;
+      text-align: right;
+      font-weight: 700;
+    }
+    table tbody tr:nth-child(even) { background: #f5f7ff; }
+    table tbody tr:hover { background: #e8eaf6; }
+    table tbody td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #e0e4f8;
+      vertical-align: top;
+    }
+    table tbody tr:last-child td { border-bottom: none; }
+
+    /* ===== HIGHLIGHT BADGE ===== */
+    .hbadge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: linear-gradient(135deg, #fff176, #ffee58);
+      color: #4a2c00;
+      border: 1px solid #f9a825;
+      border-radius: 8px;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    /* ===== GRID 2-COL ===== */
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 14px 0;
+    }
+    @media(max-width:640px){ .grid2 { grid-template-columns: 1fr; } }
+
+    /* ===== MINI CARD ===== */
+    .mini-card {
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: 13.5px;
+      margin-bottom: 10px;
+    }
+    .mc-blue   { background: #e8eaf6; border-right: 3px solid #3949ab; }
+    .mc-green  { background: #e8f5e9; border-right: 3px solid #388e3c; }
+    .mc-red    { background: #ffebee; border-right: 3px solid #e53935; }
+    .mc-purple { background: #f3e5f5; border-right: 3px solid #8e24aa; }
+    .mc-orange { background: #fff3e0; border-right: 3px solid #f4511e; }
+    .mc-teal   { background: #e0f7fa; border-right: 3px solid #00838f; }
+    .mini-card h5 { font-weight: 700; margin-bottom: 8px; font-size: 14px; }
+
+    /* ===== KEY-VALUE ROW (REWRITTEN INLINE FOR SAFARI SAFEST FLOW) ===== */
+    .kv-row {
+      padding: 8px 0;
+      font-size: 14px;
+      border-bottom: 1px dotted #e0e4f8;
+      line-height: 1.8;
+    }
+    .kv-row:last-child { border-bottom: none; }
+    .kv-key {
+      font-weight: 700;
+      color: var(--secondary);
+      display: inline;
+      margin-left: 6px;
+    }
+    .kv-value {
+      color: var(--text);
+      display: inline;
+    }
+
+    strong.em { color: #b71c1c; font-weight: 700; }
+    strong.em2 { color: #1565c0; font-weight: 700; }
+    strong.em3 { color: #2e7d32; font-weight: 700; }
+    strong.em4 { color: #6a1b9a; font-weight: 700; }
+
+    /* ===== سیستم تعاملی یادداشت‌های درون‌متنی مینیاتوری (برگرفته از جلسه ۳) ===== */
+    .note-marker {
+      background-color: #ffd54f !important;
+      border: 1px solid #ffb300 !important;
+      color: #000 !important;
+      border-radius: 4px !important;
+      cursor: pointer !important;
+      padding: 1px 4px !important;
+      margin: 0 3px !important;
+      font-size: 11px !important;
+      user-select: none !important;
+      display: inline-block !important;
+      vertical-align: middle !important;
+      font-weight: bold !important;
+      position: relative;
+      animation: notePulse 2s infinite;
+    }
+    @keyframes notePulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); }
+    }
+
+    /* کدهای CSS خالص جهت سازگاری و نمایش یادداشت در نمایشگر فایل آفلاین iOS */
+    .note-tooltip {
+      display: none;
+      position: absolute;
+      bottom: 125%;
+      right: 0;
+      background: #37474f;
+      color: #ffffff;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      min-width: 180px;
+      max-width: 250px;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+      white-space: normal;
+      line-height: 1.5;
+      font-weight: normal;
+      text-align: right;
+    }
+    .note-marker:hover .note-tooltip, .note-marker:active .note-tooltip {
+      display: block !important;
+    }
+
+    /* ===== ساختار پنجره مودال مدیریت یادداشت‌ها (برگرفته از جلسه ۳) ===== */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(26, 35, 126, 0.5);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+      direction: rtl;
+    }
+    .modal-card {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      border-top: 5px solid var(--primary);
+    }
+    .modal-card h4 {
+      margin-bottom: 14px;
+      color: var(--primary);
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .modal-textarea {
+      width: 100%;
+      height: 120px;
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: inherit;
+      resize: none;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+    .btn {
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      font-size: 13px;
+    }
+    .btn-primary { background: var(--primary); color: white; }
+    .btn-danger { background: var(--red); color: white; }
+    .btn-secondary { background: #eceff1; color: #37474f; }
+
+    /* ===== نوار ابزار تعاملی انتهای صفحه (برگرفته از جلسه ۳) ===== */
+    #highlight-panel {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.2);
+      border-radius: 50px;
+      padding: 10px 20px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 2px solid var(--primary);
+      direction: rtl;
+      width: max-content;
+      max-width: 95%;
+    }
+    #highlight-panel span {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .hl-btn {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: transform 0.1s;
+    }
+    .hl-btn:hover { transform: scale(1.15); }
+    .hl-btn-yellow { background-color: #fff59d; }
+    .hl-btn-green  { background-color: #c8e6c9; }
+    .hl-btn-blue   { background-color: #bbdefb; }
+    .hl-btn-pink   { background-color: #f8bbd0; }
+    .panel-action-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: bold;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .panel-action-btn-red { background: var(--red); }
+      /* ===== FOOTER ===== */
+    .footer {
+      background: var(--primary);
+      color: rgba(255,255,255,0.85);
+      text-align: center;
+      padding: 25px;
+      font-size: 13px;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Cover Block -->
+<div class="cover">
+  <div class="badge">فارماکولوژی ۲</div>
+  <h1>داروهای دستگاه گوارش</h1>
+  <div class="meta">
+    <div class="meta-item">نویسنده: <span>احمدرضا عبداللهی پور</span></div>
+    <div class="meta-item">جلسه: <span>جلسه ۴</span></div>
+    <div class="meta-item">برای دریافت فایل های بیشتر به بات تلگرامی مراجعه کنید
+                        
+<a href="https://t.me/Medical_house_bot" target="_blank" style="
+    display: inline-block;
+    padding: 5px 12px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: Tahoma, sans-serif;
+    font-weight: bold;">
+    🤖 شروع گفتگو با بات
+</a></div>
+
+  </div>
+</div>
+
+<!-- Table of Contents -->
+<div class="toc">
+  <h3>📋 فهرست مطالب درس</h3>
+  <ol>
+    <li><a href="#sec-intro">۱. مقدمه و فیزیولوژی حرکات دستگاه گوارش فوقانی</a></li>
+    <li><a href="#sec-prokinetics">۲. داروهای افزایش‌دهنده حرکات گوارشی (Prokinetics)</a></li>
+    <li><a href="#sec-antiemetics">۳. داروهای ضد تهوع و استفراغ (Antiemetics)</a></li>
+    <li><a href="#sec-clinical">۴. نکات بالینی، راهنمای تجویز اورژانسی و هشدارهای حیاتی</a></li>
+    <li><a href="#sec-tables">۵. جداول خلاصه مقایسه‌ای و پایش‌های دارویی</a></li>
+  </ol>
+</div>
+
+<!-- Main Body -->
+<div class="main">
+
+  <!-- SECTION 1 -->
+  <div id="sec-intro" class="section-header sh-blue">
+    <div class="icon">🔍</div>
+    <span>۱. مقدمه و فیزیولوژی حرکات دستگاه گوارش فوقانی</span>
+  </div>
+
+  <div class="subsection sub-blue">
+    <h4>فیزیولوژی حرکتی و مشکلات شایع بالینی</h4>
+    <p>
+      بخش فوقانی دستگاه گوارش (مری، معده و دوازدهه) وظیفه دریافت، آماده‌سازی و انتقال مواد غذایی به بخش‌های تحتانی را بر عهده دارد. در شرایط پاتولوژیک، اختلال در هماهنگی عضلانی و تخلیه معده منجر به علائمی نظیر تهوع، استفراغ، دیسپپسی و رفلاکس می‌شود.
+    </p>
+    <div class="infobox ib-blue">
+      <span class="ib-icon">ℹ️</span>
+      <div>
+        <strong>هدف اصلی درمان حرکتی:</strong> تسهیل و تسریع تخلیه دستگاه گوارش فوقانی در بیمارانی است که مکانیسم خودکار تخلیه معده آن‌ها به خوبی عمل نمی‌کند. این مداخلات علاوه بر تحریک حرکات، اثرات ضد استفراغ (Antiemetic) موثری نیز به همراه دارند.
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div id="sec-prokinetics" class="section-header sh-purple">
+    <div class="icon">⚡</div>
+    <span>۲. داروهای افزایش‌دهنده حرکات گوارشی (Prokinetics)</span>
+  </div>
+
+  <!-- A: Cholinomimetics -->
+  <div class="subsection sub-purple">
+    <h4>الف) داروهای کولینومیمتیک (Cholinomimetics)</h4>
+    <p>
+      داروهای مقلد اثر سیستم کولینرژیک که با فعال‌سازی گیرنده‌های استیل‌کولین، انقباضات عضلات صاف گوارشی را افزایش می‌دهند.
+    </p>
+    <div class="infobox ib-purple">
+      <span class="ib-icon">🔬</span>
+      <div>
+        <strong>نکته فارماکولوژی پایه:</strong> از استیل‌کولین (Acetylcholine) طبیعی به صورت بالینی استفاده نمی‌شود، زیرا این ماده با سرعت فوق‌العاده بالا توسط آنزیم استیل‌کولین‌استراز (Acetylcholinesterase) تخریب شده و فاقد دوام درمانی است. بنابراین از آگونیست‌های مقاوم‌تر استفاده می‌شود.
+      </div>
+    </div>
+
+    <div class="grid2">
+      <!-- Bethanechol -->
+      <div class="mini-card mc-blue">
+        <h5>🔹 بتانکول (Bethanechol)</h5>
+        <div class="kv-row">
+          <span class="kv-key">مکانیسم اثر:</span>
+          <span class="kv-value">آگونیست مستقیم و اختصاصی گیرنده‌های موسکارینی (به‌ویژه M3)</span>
+        </div>
+        <div class="kv-row">
+          <span class="kv-key">کاربرد گوارشی:</span>
+          <span class="kv-value">تحریک انقباضات و حرکات لوله گوارش (استفاده بالینی محدود)</span>
+        </div>
+        <div class="kv-row">
+          <span class="kv-key">عوارض و محدودیت:</span>
+          <span class="kv-value"><strong class="em">عوارض شدید کولینرژیک و گسترده</strong> بر سایر بافت‌ها؛ به همین علت در عمل بالینی کاربرد روتین ندارد.</span>
+        </div>
+      </div>
+
+      <!-- Neostigmine -->
+      <div class="mini-card mc-teal">
+        <h5>🔹 نئوستیگمین (Neostigmine)</h5>
+        <div class="kv-row">
+          <span class="kv-key">مکانیسم اثر:</span>
+          <span class="kv-value">مهارکننده غیرمستقیم آنزیم استیل‌کولین‌استراز (AChE inhibitor)</span>
+        </div>
+        <div class="kv-row">
+          <span class="kv-key">عملکرد سیناپسی:</span>
+          <span class="kv-value">جلوگیری از تخریب استیل‌کولین و افزایش غلظت و ماندگاری آن در شکاف سیناپسی</span>
+        </div>
+        <div class="kv-row">
+          <span class="kv-key">عوارض حیاتی:</span>
+          <span class="kv-value"><strong class="em">عوارض تنفسی شدید</strong> شامل برونکواسپاسم، تنگی نفس و افزایش ترشحات ریوی. به هیچ عنوان انتخاب روتین برای تحریک گوارشی نیست.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- B: Dopamine/Serotonin Antagonists -->
+  <div class="subsection sub-purple">
+    <h4>ب) داروهای مرتبط با دوپامین و سروتونین (سردسته پروکینتیک‌ها)</h4>
+    <p>
+      این داروها با مهار گیرنده‌های دوپامینی (D2) و تأثیر بر گیرنده‌های سروتونینی، قوی‌ترین و پرکاربردترین محرک‌های حرکتی گوارش فوقانی هستند.
+    </p>
+
+    <!-- Metoclopramide -->
+    <div class="mini-card mc-purple" style="margin-top: 15px;">
+      <h5 style="font-size: 1.15em; color: var(--purple);">💊 متوکلوپرامید (Metoclopramide) - با نام تجاری پلازیل (Plasil)</h5>
+      <p style="font-size: 13.5px; margin-bottom: 12px; font-weight: 600;">اشکال دارویی موجود: قطره خوراکی، قرص، آمپول تزریقی (IM/IV)</p>
+      
+      <div class="kv-row">
+        <span class="kv-key">مکانیسم چندگانه:</span>
+        <span class="kv-value">آنتاگونیست قدرتمند گیرنده‌های دوپامینی D2 و آنتاگونیست/آگونیست گیرنده‌های سروتونینی</span>
+      </div>
+      <div class="kv-row">
+        <span class="kv-key">محدوده اثر آناتومیک:</span>
+        <span class="kv-value"><strong class="em2">فقط بر بخش فوقانی گوارش اثر دارد</strong> (مری، معده و تا حدی دوازدهه). این دارو هیچ تاثیری بر روده‌ بزرگ (بخش تحتانی) ندارد.</span>
+      </div>
+
+      <h5 style="margin-top: 15px; font-size: 13px; color: var(--purple);">✅ کاربردهای بالینی متوکلوپرامید:</h5>
+      <ul class="list-styled purple">
+        <li><span class="li-content"><strong>گاستروپارزی (Gastroparesis):</strong> درمان فلجی و شلی معده به‌ویژه در بیماران مبتلا به دیابت.</span></li>
+        <li><span class="li-content"><strong>تاخیر در تخلیه معده:</strong> در بیماران پس از جراحی که معده در فاز عدم تخلیه موقت قرار دارد.</span></li>
+        <li><span class="li-content"><strong>رفلاکس گوارشی (GERD):</strong> کمک به عبور سریع‌تر مواد اسیدی از معده به روده.</span></li>
+        <li><span class="li-content"><strong>دیسپپسی و سوءهاضمه:</strong> کنترل دیسپپسی مقاوم و علائم پپتیک.</span></li>
+        <li><span class="li-content"><strong>کنترل تهوع و استفراغ:</strong> ناشی از مشکلات گوارشی، حملات میگرن یا اورژانس‌های عمومی.</span></li>
+        <li><span class="li-content"><strong>تهوع شیمی‌درمانی:</strong> پیشگیری و مهار تهوع ناشی از داروهای انکولوژی.</span></li>
+        <li><span class="li-content"><strong>سکسکه‌های مقاوم به درمان (Resistant Hiccups):</strong> البته داروی خط اول انتخابی (Choice) برای سکسکه مقاوم، داروی آنتی‌سایکوتیک <strong class="em4">کلروپرومازین (Chlorpromazine)</strong> است، اما متوکلوپرامید نیز کاربرد دارد.</span></li>
+      </ul>
+
+      <h5 style="margin-top: 15px; font-size: 13px; color: var(--red);">⚠️ عوارض جانبی و خطرات حیاتی:</h5>
+      <ul class="list-styled red">
+        <li><span class="li-content"><strong>سندرم خارج هرمی (Extrapyramidal Symptoms - EPS):</strong> به دلیل مهار دوپامین رخ می‌دهد (دقیقاً مشابه داروهای ضدجنون نظیر کلروپرومازین و هالوپریدول).</span></li>
+        <li><span class="li-content"><strong>شدت و حاد بودن EPS:</strong> در آنتی‌سایکوتیک‌ها دوز دارو تدریجی بالا می‌رود و بدن سازگار می‌شود؛ اما در متوکلوپرامید دارو ناگهانی و با دوز بالا تجویز می‌شود، لذا EPS بسیار حادتر و شدیدتر بروز می‌کند.</span></li>
+        <li><span class="li-content"><strong class="em">حساسیت شدید کودکان:</strong> این عارضه در کودکان بسیار شایع و شدید است (مثلاً مادری که به دلیل استفراغ کودک چندین بار قطره متوکلوپرامید را تکرار می‌کند و دوز اوردوز رخ می‌دهد). کودک با اسپاسم گردن، انحراف چشم‌ها و کج شدن کامل گردن به اورژانس آورده می‌شود.</span></li>
+        <li><span class="li-content"><strong>سایر عوارض:</strong> آژیتاسیون، بی‌قراری شدید، خواب‌آلودگی، اضطراب، اختلالات قاعدگی و <strong class="em">گالاکتوره (ترشح شیر از سینه)</strong> به دلیل افزایش پرولاکتین ناشی از بلوک D2 (در بانوانی که ترشح شیر کمی دارند، گاهی عمداً برای تحریک شیردهی تجویز می‌شود).</span></li>
+      </ul>
+
+      <div class="infobox ib-red">
+        <span class="ib-icon">🚨</span>
+        <div>
+          <strong>پروتکل درمان اورژانسی EPS متوکلوپرامید:</strong> بهترین و موثرترین درمان، تزریق فوری آمپول <strong class="em">بی‌پریدین (Biperiden / Akineton)</strong> است. این دارو اثرات شبه‌پارکینسونی و اسپاسم گردن را طی چند ساعت کاملاً بهبود می‌بخشد.
+        </div>
+      </div>
+    </div>
+
+    <!-- Domperidone -->
+    <div class="mini-card mc-teal" style="margin-top: 15px;">
+      <h5 style="font-size: 1.15em; color: var(--teal);">💊 دومپریدون (Domperidone)</h5>
+      <div class="kv-row">
+        <span class="kv-key">مکانیسم اثر:</span>
+        <span class="kv-value">آنتاگونیست اختصاصی گیرنده‌های دوپامین با اثرات مشابه متوکلوپرامید.</span>
+      </div>
+      <div class="kv-row">
+        <span class="kv-key">مزیت فوق‌العاده بالینی:</span>
+        <span class="kv-value"><strong class="em3">عدم ایجاد عوارض اکستراپیرامیدال (EPS)</strong> و ایجاد گالاکتوره بسیار کمتر در مقایسه با متوکلوپرامید.</span>
+      </div>
+      <div class="kv-row">
+        <span class="kv-key">علت بی خطری CNS:</span>
+        <span class="kv-value">دومپریدون نفوذ بسیار ناچیزی به سیستم عصبی مرکزی دارد و <strong class="em2">نمی‌تواند به راحتی از سد خونی-مغزی (BBB) عبور کند.</strong></span>
+      </div>
+      <div class="kv-row">
+        <span class="kv-key">کاربردهای ارجح:</span>
+        <span class="kv-value">بیمارانی که استفراغ ناشی از بیماری‌های التهابی روده‌ای (گاستروانتریت، اسهال و استفراغ همزمان) دارند یا دچار سنگینی سر دل و عدم تخلیه معده هستند.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- C: Macrolides -->
+  <div class="subsection sub-orange">
+    <h4>ج) ماکرولیدها (Macrolides)</h4>
+    <p>
+      برخی از آنتی‌بیوتیک‌های خانواده ماکرولید اثرات پروکینتیک شدیدی از خود نشان می‌دهند.
+    </p>
+
+    <div class="mini-card mc-orange">
+      <h5>💊 اریترومایسین (Erythromycin)</h5>
+      <div class="kv-row">
+        <span class="kv-key">مکانیسم پروکینتیک:</span>
+        <span class="kv-value">عملکرد مستقیم به عنوان <strong class="em4">آگونیست گیرنده‌های موتیلین (Motilin receptors)</strong> در دستگاه گوارش.</span>
+      </div>
+      <div class="kv-row">
+        <span class="kv-key">وضعیت آنتی‌بیوتیکی:</span>
+        <span class="kv-value">به دلیل بروز مقاومت دارویی بسیار گسترده، امروزه اریترومایسین خوراکی کمتر به عنوان آنتی‌بیوتیک تجویز می‌شود (بیشترین مصرف آنتی‌بیوتیکی آن به صورت موضعی برای درمان آکنه پوستی است).</span>
+      </div>
+      <div class="kv-row">
+        <span class="kv-key">کاربردهای اختصاصی حرکتی:</span>
+        <span class="kv-value">تجویز در بیماران مبتلا به <strong class="em">سرطان معده (Gastric Cancer)</strong> که بخش عظیمی از معده آن‌ها برداشته شده (Partial gastrectomy)، بیماران پس از جراحی‌های اسلیو معده (Sleeve gastrectomy) جهت تسهیل عبور غذاهای سنگین و جلوگیری از انباشت غذا روی دل بیمار.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div id="sec-antiemetics" class="section-header sh-teal">
+    <div class="icon">🤢</div>
+    <span>۳. داروهای ضد تهوع و استفراغ (Antiemetics)</span>
+  </div>
+
+  <!-- A: 5-HT3 Antagonists -->
+  <div class="subsection sub-teal">
+    <h4>الف) آنتاگونیست‌های گیرنده سروتونین (5-HT3 Antagonists)</h4>
+    <p>
+      سروتونین یکی از اصلی‌ترین انتقال‌دهنده‌های عصبی تحریک‌کننده استفراغ در مسیر شیمیایی مغز و روده است.
+    </p>
+
+    <div class="mini-card mc-blue">
+      <h5>💊 اوندانسترون (Ondansetron) - با نام تجاری دیمیترون (Dymetron)</h5>
+      <p style="font-size: 13.5px; margin-bottom: 10px; font-weight: 600;">اشکال دارویی: قرص خوراکی، شربت، آمپول‌های تزریقی (IM و IV)</p>
+      
+      <div class="kv-row">
+        <span class="kv-key">مکانیسم عمل:</span>
+        <span class="kv-value">آنتاگونیست بسیار قوی و اختصاصی گیرنده 5-HT3 (گرانیسترون نیز هم‌خانواده آن است ولی کمتر مصرف می‌شود).</span>
+      </div>
+      <div class="kv-row">
+        <span class="kv-key">مزیت بزرگ ایمنی:</span>
+        <span class="kv-value"><strong class="em3">به هیچ عنوان عوارض اکستراپیرامیدال (EPS) ایجاد نمی‌کند</strong> و حتی در دوزهای بالا بسیار ایمن و قابل تحمل است. بهترین انتخاب ضدتهوع برای اطفال.</span>
+      </div>
+      
+      <h5 style="margin-top: 12px; font-size: 13px; color: var(--blue);">📍 کاربردهای کلیدی:</h5>
+      <ul class="list-styled green">
+        <li><span class="li-content">پیشگیری و مهار تهوع و استفراغ شدید ناشی از <strong>شیمی‌درمانی (Chemotherapy)</strong> - قبل و بعد از دوره درمان.</span></li>
+        <li><span class="li-content">مهار استفراغ‌های شدید ناشی از پرتودرمانی (Radiotherapy).</span></li>
+        <li><span class="li-content">درمان تهوع و استفراغ بعد از عمل جراحی (PONV).</span></li>
+      </ul>
+
+      <div class="infobox ib-yellow">
+        <span class="ib-icon">⚠️</span>
+        <div>
+          <strong>علل تهوع پس از جراحی (PONV):</strong> معمولاً به ۲ علت رخ می‌دهد: ۱. استفاده از داروهای بیهوشی استنشاقی/وریدی. ۲. تجویز داروهای ضددرد مخدر قوی نظیر <strong>پتیدین (Pethidine)</strong> و <strong>فنتانیل (Fentanyl)</strong> در اتاق عمل.
+        </div>
+      </div>
+
+      <div class="kv-row">
+        <span class="kv-key">عوارض جانبی اوندانسترون:</span>
+        <span class="kv-value">سردرد، سرگیجه، یبوست، و افزایش خفیف و گذرا در آنزیم‌های کبدی (ALT/AST) که پس از چند روز مصرف برطرف شده و فاقد اهمیت بالینی عمده است.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- B: NK1 Antagonists -->
+  <div class="subsection sub-teal">
+    <h4>ب) آنتاگونیست‌های گیرنده نوروکینین-۱ (NK1 Antagonists)</h4>
+    <div class="mini-card mc-purple">
+      <h5>💊 اپرپیتانت (Aprepitant)</h5>
+      <div class="kv-row">
+        <span class="kv-key">مکانیسم اثر:</span>
+        <span class="kv-value">بلوک اختصاصی گیرنده‌های نوروکینین (NK1) با نفوذ عالی به مغز و مهار مستقیم مرکز استفراغ در CNS.</span>
+      </div>
+      <div class="kv-row">
+        <span class="kv-key">کاربرد بالینی ارجح:</span>
+        <span class="kv-value">تجویز در استفراغ‌های فوق‌العاده شدید و جهنده ناشی از شیمی‌درمانی انکولوژی، به‌ویژه در مواردی که بیمار به داروی اوندانسترون پاسخ درمانی مناسبی نداده است.</span>
+      </div>
+      <div class="kv-row">
+        <span class="kv-key">عوارض جانبی:</span>
+        <span class="kv-value">خستگی مفرط (Fatigue)، سرگیجه شدید و اسهال.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- C: Phenothiazines -->
+  <div class="subsection sub-teal">
+    <h4>ج) فنوتیازین‌ها (Phenothiazines)</h4>
+    <div class="mini-card mc-red">
+      <h5>💊 پرومتازین (Promethazine)</h5>
+      <p style="font-size: 13.5px; margin-bottom: 10px; font-weight: 600;">اشکال دارویی: قرص، شربت، آمپول تزریقی</p>
+      <div class="kv-row">
+        <span class="kv-key">ماهیت فارماکولوژیک:</span>
+        <span class="kv-value">در اصل جزو خانواده داروهای ضدجنون (Antipsychotics) است، اما امروزه به دلیل اثرات ضد استفراغ استفاده می‌شود.</span>
+      </div>
+      <div class="kv-row">
+        <span class="kv-key">مکانیسم اثر:</span>
+        <span class="kv-value">مهار همزمان گیرنده‌های دوپامینی (D2)، آنتی‌هیستامینی (H1) و آنتی‌کولینرژیکی شدید.</span>
+      </div>
+      <div class="kv-row">
+        <span class="kv-key">کاربردهای درمانی:</span>
+        <span class="kv-value">پیشگیری و درمان بیماری حرکت (Motion Sickness)، تهوع جراحی و استفاده به عنوان داروی کمکی (Adjuvant) در کنار اوندانسترون.</span>
+      </div>
+      <div class="kv-row">
+        <span class="kv-key">عوارض جانبی عمده:</span>
+        <span class="kv-value"><strong class="em">خواب‌آلودگی شدید (Sedation)</strong>، گیجی و خشکی دهان. به همین دلیل مصرف آن محدودتر است.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- D: Antihistamines -->
+  <div class="subsection sub-teal">
+    <h4>د) آنتی‌هیستامین‌ها (Antihistamines)</h4>
+    <div class="mini-card mc-orange">
+      <h5>💊 دیفن‌هیدرامین (Diphenhydramine) و دایمن‌هیدرینات (Dimenhydrinate)</h5>
+      <div class="kv-row">
+        <span class="kv-key">مکانیسم اثر:</span>
+        <span class="kv-value">مهار گیرنده‌های هیستامینی H1 در سیستم دهلیزی گوش داخلی و مرکز تهوع مغز.</span>
+      </div>
+      <div class="kv-row">
+        <span class="kv-key">کاربردهای گوارشی:</span>
+        <span class="kv-value">درمان اختصاصی بیماری حرکت (ماشین‌زدگی/Motion sickness)، استفراغ‌های پس از جراحی، و کنترل تهوع و استفراغ در کودکان هنگامی که با سرماخوردگی، سرفه و سوزش گلو همراه است.</span>
+      </div>
+      <div class="kv-row">
+        <span class="kv-key">عوارض و احتیاط‌ها:</span>
+        <span class="kv-value">ایجاد خشکی شدید دهان و گلو، خواب‌آلودگی شدید. بیمار باید اکیداً از رانندگی و کار با وسایل حساس پرهیز کند.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- E: Cannabinoids -->
+  <div class="subsection sub-teal">
+    <h4>ه) داروهای مرتبط با کانابینوئید</h4>
+    <div class="mini-card mc-green">
+      <h5>💊 نابیلیون (Nabilone) / درونابینول (Dronabinol)</h5>
+      <div class="kv-row">
+        <span class="kv-key">منشأ دارویی:</span>
+        <span class="kv-value">مشتقات سنتز شده از گیاه کانابیس (حشیش).</span>
+      </div>
+      <div class="kv-row">
+        <span class="kv-key">کاربردهای درمانی:</span>
+        <span class="kv-value">اثر ضدتهوع قوی و محرک فوق‌العاده قوی اشتها در بیماران مبتلا به ایدز یا سرطان.</span>
+      </div>
+      <div class="kv-row">
+        <span class="kv-key">علت محدودیت مصرف:</span>
+        <span class="kv-value"><strong class="em">پتانسیل بالای سوءمصرف و وابستگی</strong>، ایجاد عوارض خلقی نظیر سرخوشی (Euphoria) و اثرات مخدر. مصرف آن بسیار کنترل‌شده است.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- F: Adjuvants -->
+  <div class="subsection sub-teal">
+    <h4>و) سایر گروه‌های ضدتهوع (داروهای کمکی)</h4>
+    <ul class="list-styled teal">
+      <li><span class="li-content"><strong>گلوکوکورتیکوئیدها (کورتون‌ها):</strong> داروهایی نظیر دگزامتازون که در ترکیب با اوندانسترون برای کنترل تهوع شدید شیمی‌درمانی فوق‌العاده موثرند.</span></li>
+      <li><span class="li-content"><strong>بنزودیازپین‌ها (مانند لورازپام):</strong> بیشتر برای کاهش اضطراب ناشی از تهوع پیش‌بینانه (Anticipatory nausea) در بخش‌های انکولوژی کاربرد دارند.</span></li>
+      <li><span class="li-content"><strong>ویتامین B6 (پیریدوکسین):</strong> ایمن‌ترین و اولین سد درمانی برای کنترل ویار بارداری.</span></li>
+    </ul>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div id="sec-clinical" class="section-header sh-red">
+    <div class="icon">🚨</div>
+    <span>۴. نکات بالینی، راهنمای تجویز اورژانسی و هشدارهای حیاتی</span>
+  </div>
+
+  <!-- Warning Silent MI -->
+  <div class="subsection sub-red">
+    <h4>⚠️ ۱. خطر ماسک شدن سکته قلبی (Myocardial Infarction)</h4>
+    <p>
+      استفراغ یک رفلکس دفاعی است و هرگز نباید بدون بررسی علت زمینه‌ای سریعاً سرکوب شود.
+    </p>
+    <div class="infobox ib-red">
+      <span class="ib-icon">🛑</span>
+      <div>
+        <strong>هشدار مرگبار بالینی:</strong> سکته‌های قلبی حاد (MI) به‌ویژه در بیماران مبتلا به دیابت به دلیل نوروپاتی اتونوم و تخریب اعصاب حسی درد، فاقد درد قفسه سینه هستند (Silent MI) و ممکن است <strong class="em">تنها با علامت تهوع و استفراغ شدید</strong> تظاهر یابند. تجویز خودسرانه ضدتهوع در این شرایط علائم بیمار را ماسکه کرده و منجر به مرگ وی بر اثر سکته قلبی می‌شود. ابتدا منشأ استفراغ را بیابید!
+      </div>
+    </div>
+  </div>
+
+  <!-- Electrolyte disturbance -->
+  <div class="subsection sub-red">
+    <h4>⚠️ ۲. اختلالات الکترولیتی و دهیدراتاسیون</h4>
+    <p>
+      بیمارانی که به طور مداوم استفراغ می‌کنند، حجم زیادی از آب و املاح حیاتی بدن را از دست می‌دهند.
+    </p>
+    <ul class="list-styled red">
+      <li><span class="li-content"><strong>پیامدهای متابولیک:</strong> از دست رفتن اسید معده (HCl) منجر به بروز <strong class="em">آلکالوز متابولیک (Metabolic Alkalosis)</strong> و دفع شدید پتاسیم یعنی <strong class="em">هایپوکالمی (Hypokalemia)</strong> می‌شود.</span></li>
+      <li><span class="li-content"><strong>حساسیت اطفال:</strong> کودکان به دلیل داشتن توده بدنی بسیار کمتر، به شدت و با سرعت بالا در معرض خطر دهیدراتاسیون و شوک هستند.</span></li>
+      <li><span class="li-content"><strong>خط اول مدیریت:</strong> در صورت توانایی تحمل، استفاده از سرم‌های خوراکی نظیر <strong>ORS</strong>؛ در غیر این صورت شروع فوری سرم‌درمانی وریدی.</span></li>
+    </ul>
+  </div>
+
+  <!-- Route of administration clinical rule -->
+  <div class="subsection sub-red">
+    <h4>⚠️ ۳. راهنمای طلایی انتخاب مسیر تجویز (خوراکی در برابر تزریقی)</h4>
+    <p>
+      مهم‌ترین سوال بالینی که پزشک یا پرستار باید در بدو ورود بیمار استفراغ‌کننده بپرسد این است:
+    </p>
+    <div class="infobox ib-yellow">
+      <span class="ib-icon">❓</span>
+      <div>
+        <strong>«آخرین وعده غذایی یا آب را چه زمانی مصرف کردی؟ آیا توانستی آن را در معده نگه داری؟»</strong>
+      </div>
+    </div>
+    
+    <div class="grid2">
+      <div class="mini-card mc-green">
+        <h5>🟢 مسیر خوراکی (Oral)</h5>
+        <p>اگر بیمار بگوید مثلاً ۲ ساعت پیش غذا یا آب خورده و بالا نیاورده است؛ می‌توان از فرم‌های خوراکی (قرص یا شربت اوندانسترون/متوکلوپرامید) استفاده کرده و پس از پایش بیمار را مرخص نمود.</p>
+      </div>
+      <div class="mini-card mc-red">
+        <h5>🔴 مسیر تزریقی (Parenteral)</h5>
+        <p>اگر بیمار گزارش دهد که حتی با خوردن یک قطره آب بلافاصله بالا می‌آورد؛ تجویز داروی خوراکی کاملاً بی‌فایده است. در صورت وجود علائم دهیدراتاسیون، رگ‌گیری انجام شده و داروی ضدتهوع درون سرم (IV) تزریق می‌شود. در غیر این صورت، دارو به صورت عضلانی (IM) تزریق می‌گردد.</p>
+      </div>
+    </div>
+
+    <div class="infobox ib-blue">
+      <span class="ib-icon">🕒</span>
+      <div>
+        <strong>قانون طلایی تغذیه پس از تزریق:</strong> حتماً باید به بیمار و همراه او آموزش داد که پس از تزریق آمپول ضدتهوع، <strong class="em2">بین ۳۰ تا ۶۰ دقیقه هیچ‌گونه ماده غذایی یا مایعات نخورد</strong> (حتی اگر احساس بهبودی کامل کند). اجازه دهید دارو اثر کند، سپس به آرامی مایعات را شروع کند.
+      </div>
+    </div>
+  </div>
+
+  <!-- Pregnancy Safety Class -->
+  <div class="subsection sub-red">
+    <h4>⚠️ ۴. رده‌بندی داروها در تهوع بارداری (ویار حاملگی)</h4>
+    <p>
+      در زنان باردار حفظ هیدریشن بسیار حیاتی است، اما ایمنی دارویی بر روی جنین اولویت اول را دارد:
+    </p>
+    
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>نام دارو</th>
+            <th>گروه بارداری (FDA)</th>
+            <th>وضعیت مصرف در بارداری</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ویتامین B6 (پیریدوکسین)</strong></td>
+            <td>Category A / B</td>
+            <td><span class="tag tag-green">کاملاً ایمن / خط اول درمان</span></td>
+          </tr>
+          <tr>
+            <td><strong>اوندانسترون (Ondansetron)</strong></td>
+            <td>Category B</td>
+            <td><span class="tag tag-green">ایمن / سردسته داروهای انتخابی بارداری</span></td>
+          </tr>
+          <tr>
+            <td><strong>متوکلوپرامید (Metoclopramide)</strong></td>
+            <td>Category B</td>
+            <td><span class="tag tag-green">ایمن / قابل استفاده در صورت نیاز</span></td>
+          </tr>
+          <tr>
+            <td><strong>آنتی‌هیستامین‌ها (مانند دیفن‌هیدرامین)</strong></td>
+            <td>Category C</td>
+            <td><span class="tag tag-red">نامناسب / در بارداری روتین استفاده نمی‌شوند</span></td>
+          </tr>
+          <tr>
+            <td><strong>بنزودیازپین‌ها (Benzodiazepines)</strong></td>
+            <td>Category D</td>
+            <td><span class="tag tag-red">ممنوع مطلق / پتانسیل آسیب شدید به جنین</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Pediatric warning -->
+  <div class="subsection sub-red">
+    <h4>⚠️ ۵. پایش ایمنی نوزادان و اطفال (منع مصرف حیاتی پرومتازین)</h4>
+    <div class="infobox ib-red">
+      <span class="ib-icon">🚨</span>
+      <div>
+        <strong>منع مصرف مطلق پرومتازین در نوزادان زیر ۶ ماه:</strong> به هیچ عنوان نباید از داروی پرومتازین در کودکان زیر ۶ ماه استفاده کرد. در رفرنس‌های فارماکولوژی اثبات شده که مصرف پرومتازین در نوزادان زیر ۶ ماه ارتباط مستقیمی با بروز <strong class="em">سندرم مرگ ناگهانی نوزاد (Sudden Infant Death Syndrome - SIDS)</strong> دارد و مرگ ناگهانی در خواب را ایجاد می‌کند.
+      </div>
+    </div>
+    <ul class="list-styled red">
+      <li><span class="li-content"><strong>محدودیت اطفال زیر ۲ سال:</strong> طبق برخی منابع، استفاده از آنتی‌هیستامین‌ها در کودکان زیر ۲ سال توصیه نمی‌شود، اگرچه در بالین گاهی استفاده می‌شود؛ اما منع مصرف زیر ۶ ماه <strong class="em">مطلق و قطعی</strong> است.</span></li>
+      <li><span class="li-content"><strong>گام اول درمان در کودکان:</strong> در صورت بروز استفراغ در اطفال، گام اول درمان (پس از کشف علت زمینه‌ای) تجویز <strong>اوندانسترون</strong> به صورت شربت یا قرص‌های بازشونده در دهان است.</span></li>
+    </ul>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div id="sec-tables" class="section-header sh-teal">
+    <div class="icon">📊</div>
+    <span>۵. جداول خلاصه مقایسه‌ای و پایش‌های دارویی</span>
+  </div>
+
+  <div class="subsection sub-teal">
+    <h4>جدول جامع مقایسه‌ای داروهای دستگاه گوارش (جلسه ۴)</h4>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>نام دارو</th>
+            <th>دسته دارویی</th>
+            <th>مکانیسم اثر اصلی</th>
+            <th>کاربرد بالینی ارجح</th>
+            <th>عوارض جانبی شاخص و پایش‌ها</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Bethanechol</strong></td>
+            <td>کولینومیمتیک</td>
+            <td>آگونیست مستقیم موسکارینی</td>
+            <td>تحریک انقباضات گوارشی</td>
+            <td>عوارض وسیع کولینرژیک (پایش ترشحات و اسهال)</td>
+          </tr>
+          <tr>
+            <td><strong>Neostigmine</strong></td>
+            <td>کولینومیمتیک غیرمستقیم</td>
+            <td>مهار استیل‌کولین‌استراز</td>
+            <td>تحریک حرکتی (محدود)</td>
+            <td>برونکواسپاسم، تنگی نفس شدید (پایش ریوی)</td>
+          </tr>
+          <tr>
+            <td><strong>Metoclopramide</strong></td>
+            <td>پروکینتیک / ضدتهوع</td>
+            <td>مهار D2 + اثر بر سروتونین</td>
+            <td>گاستروپارزی دیابتی، رفلاکس</td>
+            <td><strong class="em">EPS شدید (انحراف گردن در اطفال)، گاالکتوره</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Domperidone</strong></td>
+            <td>پروکینتیک / ضدتهوع</td>
+            <td>مهار اختصاصی D2</td>
+            <td>تهوع گاستروانتریت روده</td>
+            <td>بسیار ایمن، عدم عبور از BBB، فاقد عارضه EPS</td>
+          </tr>
+          <tr>
+            <td><strong>Erythromycin</strong></td>
+            <td>ماکرولید / پروکینتیک</td>
+            <td>آگونیست گیرنده موتیلین</td>
+            <td>پس از جراحی گاسترکتومی</td>
+            <td>مقاومت آنتی‌بیوتیکی (امروزه بیشتر ضدآکنه موضعی است)</td>
+          </tr>
+          <tr>
+            <td><strong>Ondansetron</strong></td>
+            <td>ضدتهوع اختصاصی</td>
+            <td>آنتاگونیست گیرنده 5-HT3</td>
+            <td>شیمی‌درمانی، رادیوتراپی، PONV</td>
+            <td>سردرد، یبوست، افزایش خفیف آنزیم‌های کبدی (ALT/AST)</td>
+          </tr>
+          <tr>
+            <td><strong>Aprepitant</strong></td>
+            <td>ضدتهوع CNS</td>
+            <td>آنتاگونیست گیرنده NK1</td>
+            <td>استفراغ‌های شدید شیمی‌درمانی</td>
+            <td>خستگی مفرط، سرگیجه، اسهال پاتولوژیک</td>
+          </tr>
+          <tr>
+            <td><strong>Promethazine</strong></td>
+            <td>فنوتیازین / آنتی‌هیستامین</td>
+            <td>مهار D2 + مهار H1 + مهار M</td>
+            <td>بیماری حرکت (Motion sickness)</td>
+            <td><strong class="em">مرگ ناگهانی نوزاد (SIDS) زیر ۶ ماه</strong>، خواب‌آلودگی شدید</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+<!-- ===== FOOTER ===== -->
+<div class="footer">
+  <p>تهیه شده توسط احمدرضا عبداللهی پور</p>
+  <p>برای دریافت فایل های بیشتر به بات تلگرامی مراجعه کنید
+                        
+<a href="https://t.me/Medical_house_bot" target="_blank" style="
+    display: inline-block;
+    padding: 5px 12px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: Tahoma, sans-serif;
+    font-weight: bold;">
+    🤖 شروع گفتگو با بات
+</a></p>
+</div>
+
+<!-- ===== نوار شناور ابزار چند پلتفرمی (برگرفته از جلسه ۳) ===== -->
+<div id="highlight-panel">
+  <span>🖍️ ابزار مطالعه:</span>
+  <button class="hl-btn hl-btn-yellow" onclick="applyColorHighlight('#fff59d')" title="زرد"></button>
+  <button class="hl-btn hl-btn-green" onclick="applyColorHighlight('#c8e6c9')" title="سبز"></button>
+  <button class="hl-btn hl-btn-blue" onclick="applyColorHighlight('#bbdefb')" title="آبی"></button>
+  <button class="hl-btn hl-btn-pink" onclick="applyColorHighlight('#f8bbd0')" title="صورتی"></button>
+  <button class="panel-action-btn" onclick="addNoteAtSelection()">📝 یادداشت</button>
+  <button class="panel-action-btn" onclick="viewAllNotes()">🔍 لیست یادداشت‌ها</button>
+  <button class="panel-action-btn panel-action-btn-red" onclick="clearSelectedHighlight()">❌ پاک‌کردن</button>
+  <button class="panel-action-btn" style="background:#2e7d32;" onclick="exportModifiedHTML()">📥 خروجی گرفتن از فایل</button>
+</div>
+
+<!-- پنجره مودال ثبت/ویرایش یادداشت (برگرفته از جلسه ۳) -->
+<div class="modal-overlay" id="note-edit-modal">
+  <div class="modal-card">
+    <h4 id="modal-title">ثبت یادداشت جدید در این محل</h4>
+    <textarea class="modal-textarea" id="modal-note-input" placeholder="نکته مهم کلاسی خود را جهت مرور سریع بنویسید..."></textarea>
+    <div class="modal-actions">
+      <button class="btn btn-primary" onclick="saveNoteChanges()">💾 ذخیره تغییرات</button>
+      <button class="btn btn-danger" id="btn-delete-note" onclick="deleteActiveNote()">❌ حذف یادداشت</button>
+      <button class="btn btn-secondary" onclick="closeNoteModal()">انصراف</button>
+    </div>
+  </div>
+</div>
+
+<!-- پنجره مودال لیست همه‌ی یادداشت‌ها (برگرفته از جلسه ۳) -->
+<div class="modal-overlay" id="all-notes-modal">
+  <div class="modal-card" style="max-height: 80%; overflow-y: auto; max-width: 600px;">
+    <h4>📋 تمام یادداشت‌های ثبت‌شده شما</h4>
+    <div id="all-notes-list" style="margin-bottom: 20px;">
+      <!-- لیست پویا به صورت خودکار پر خواهد شد -->
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeAllNotesModal()">بستن پنجره</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== INTERACTIVE JAVASCRIPT LOGIC (برگرفته از جلسه ۳) ===== -->
+<script>
+  // لغو و پاکسازی کلیدهای قدیمی مرورگر
+  const oldStateKeys = [
+    "pharmacology_session4_state_v1"
+  ];
+  oldStateKeys.forEach(k => localStorage.removeItem(k));
+
+  const storageStateKey = "gi_pharma_session4_interactive_state";
+  let savedRange = null; 
+  let activeMarker = null;
+
+  document.addEventListener("DOMContentLoaded", () => {
+    loadPageState();
+  });
+
+  // ذخیره کل کدهای داخل کانتینر محتوا در localStorage برای ماندگاری کامل تغییرات
+  function savePageState() {
+    const mainHTML = document.querySelector('.main').innerHTML;
+    localStorage.setItem(storageStateKey, mainHTML);
+  }
+
+  // لود تغییرات ذخیره شده
+  function loadPageState() {
+    const savedHTML = localStorage.getItem(storageStateKey);
+    if (savedHTML) {
+      document.querySelector('.main').innerHTML = savedHTML;
+    }
+  }
+
+  // هایلایت بومی سازگار با iOS/Safari و مابقی مرورگرها بدون به هم ریختن استایل
+  function applyColorHighlight(colorHex) {
+    const selection = window.getSelection();
+    if (!selection.rangeCount || selection.isCollapsed) {
+      alert("لطفاً ابتدا متنی از جزوه را با ماوس یا لمس طولانی انتخاب کنید.");
+      return;
+    }
+
+    const main = document.querySelector('.main');
+    const originalEditable = main.contentEditable;
+    
+    main.contentEditable = "true";
+    
+    try {
+      document.execCommand("styleWithCSS", false, true);
+      document.execCommand("backColor", false, colorHex);
+    } catch (e) {
+      console.error("خطای هایلایت:", e);
+    }
+    
+    main.contentEditable = originalEditable;
+    selection.removeAllRanges();
+    savePageState();
+  }
+
+  // پاک کردن بومی و کامل هایلایت‌های اعمال شده با دستور بومی مرورگر
+  function clearSelectedHighlight() {
+    applyColorHighlight('transparent');
+  }
+
+  // ثبت محدوده انتخاب کاربر دقیقا قبل از باز شدن مودال (حل مشکل سافاری آیفون)
+  function addNoteAtSelection() {
+    const selection = window.getSelection();
+    if (!selection.rangeCount || selection.isCollapsed) {
+      alert("لطفاً ابتدا بخشی از متن را با کشیدن انگشت یا ماوس انتخاب کنید تا یادداشت به آنجا متصل شود.");
+      return;
+    }
+
+    // کپی برداری عمیق از رنج انتخابی برای دور زدن لغو سلکشن در هنگام فوکوس روی فیلد متن آیفون
+    savedRange = selection.getRangeAt(0).cloneRange();
+    
+    activeMarker = null; 
+    document.getElementById("modal-title").innerText = "ثبت یادداشت جدید در این محل";
+    document.getElementById("modal-note-input").value = "";
+    document.getElementById("btn-delete-note").style.display = "none";
+    document.getElementById("note-edit-modal").style.display = "flex";
+  }
+
+  // ذخیره نهایی یادداشت جدید یا اعمال ویرایش روی یادداشت‌های قبلی
+  function saveNoteChanges() {
+    const text = document.getElementById("modal-note-input").value.trim();
+    if (!text) {
+      alert("لطفاً متن یادداشت را وارد کنید.");
+      return;
+    }
+
+    if (activeMarker === null) {
+      // استفاده از محدوده ذخیره شده قبل از فعال شدن فوکوس مودال
+      if (savedRange) {
+        const marker = document.createElement("span");
+        marker.className = "note-marker";
+        marker.setAttribute("data-note", text);
+        // تولتیپ خالص سی‌اس‌اس را درون تگ تزریق می‌کنیم تا نسخه خروجی بدون جاوا اسکریپت در نمایشگر پیش‌فرض آیفون نیز کار کند
+        marker.innerHTML = `📝<span class="note-tooltip">${escapeHTML(text)}</span>`;
+        marker.contentEditable = "false";
+        
+        try {
+          savedRange.collapse(false); // انتقال به انتهای بخش منتخب
+          savedRange.insertNode(marker);
+        } catch (e) {
+          console.error("Error inserting marker:", e);
+          alert("امکان درج یادداشت در این بخش به دلیل تداخل تگ‌ها وجود ندارد. لطفا متن ساده‌تری را انتخاب کنید.");
+        }
+        savedRange = null; // ریست کردن برای جلوگیری از تداخل
+      } else {
+        alert("محدوده متن انتخاب شده معتبر نیست. لطفاً مجدداً متن را انتخاب کنید.");
+        return;
+      }
+    } else {
+      // ویرایش یادداشت ثبت شده از قبل
+      activeMarker.setAttribute("data-note", text);
+      activeMarker.innerHTML = `📝<span class="note-tooltip">${escapeHTML(text)}</span>`;
+    }
+
+    closeNoteModal();
+    savePageState();
+  }
+
+  // حذف یادداشت فعال
+  function deleteActiveNote() {
+    if (activeMarker && confirm("آیا مایل به حذف این یادداشت هستید؟")) {
+      activeMarker.remove();
+      closeNoteModal();
+      savePageState();
+    }
+  }
+
+  // بستن مودال ثبت یادداشت
+  function closeNoteModal() {
+    document.getElementById("note-edit-modal").style.display = "none";
+    activeMarker = null;
+    savedRange = null;
+  }
+
+  // گوش دادن به رویداد کلیک روی نشانه‌های یادداشت درون‌متنی (حتی پس از لود مجدد صفحه)
+  document.addEventListener("click", (e) => {
+    if (e.target.classList.contains("note-marker")) {
+      activeMarker = e.target;
+      const savedText = activeMarker.getAttribute("data-note") || "";
+      document.getElementById("modal-title").innerText = "مشاهده و ویرایش یادداشت";
+      document.getElementById("modal-note-input").value = savedText;
+      document.getElementById("btn-delete-note").style.display = "inline-block";
+      document.getElementById("note-edit-modal").style.display = "flex";
+    }
+  });
+
+  // باز کردن مودال کل یادداشت‌ها جهت مرور یکجای خلاصه‌ها
+  function viewAllNotes() {
+    const markers = document.querySelectorAll(".note-marker");
+    const listContainer = document.getElementById("all-notes-list");
+    listContainer.innerHTML = "";
+
+    if (markers.length === 0) {
+      listContainer.innerHTML = '<p style="text-align:center; color:var(--muted); font-size:14px; padding:20px 0;">هیچ یادداشتی در کل متن ثبت نشده است.</p>';
+      document.getElementById("all-notes-modal").style.display = "flex";
+      return;
+    }
+
+    markers.forEach((marker, index) => {
+      const noteText = marker.getAttribute("data-note") || "";
+      const context = marker.previousSibling ? marker.previousSibling.textContent.slice(-35) : "...";
+      
+      const card = document.createElement("div");
+      card.className = "mini-card mc-blue";
+      card.style.marginBottom = "12px";
+      card.innerHTML = `
+        <div style="font-size:11px; color:var(--muted); margin-bottom:5px;">یادداشت شماره ${index + 1} (متن مجاور: "...${escapeHTML(context)}")</div>
+        <div style="font-weight:bold; font-size:14px; line-height:1.6; white-space:pre-wrap; color:var(--text);">${escapeHTML(noteText)}</div>
+        <div style="margin-top:10px; display:flex; gap:8px;">
+          <button onclick="scrollToMarker(${index})" class="tag tag-blue" style="border:none; cursor:pointer; padding:4px 10px;">🔍 پرش به محل یادداشت</button>
+          <button onclick="deleteMarkerFromList(${index})" class="tag tag-red" style="border:none; cursor:pointer; padding:4px 10px;">❌ حذف</button>
+        </div>
+      `;
+      listContainer.appendChild(card);
+    });
+
+    document.getElementById("all-notes-modal").style.display = "flex";
+  }
+
+  // پرش به موقعیت یادداشت و افکت چشمک زن برای مکان‌یابی آنی
+  window.scrollToMarker = function(index) {
+    const markers = document.querySelectorAll(".note-marker");
+    if (markers[index]) {
+      closeAllNotesModal();
+      markers[index].scrollIntoView({ behavior: "smooth", block: "center" });
+      
+      const originalBg = markers[index].style.backgroundColor;
+      markers[index].style.backgroundColor = "#ff5252";
+      markers[index].style.transform = "scale(1.4)";
+      
+      setTimeout(() => {
+        markers[index].style.backgroundColor = originalBg;
+        markers[index].style.transform = "scale(1)";
+      }, 1500);
+    }
+  };
+
+  // حذف مستقیم یادداشت از لیست جامع
+  window.deleteMarkerFromList = function(index) {
+    if (confirm("آیا مایل به حذف این یادداشت هستید؟")) {
+      const markers = document.querySelectorAll(".note-marker");
+      if (markers[index]) {
+        markers[index].remove();
+        savePageState();
+        viewAllNotes(); 
+      }
+    }
+  };
+
+  // ذخیره و دانلود فایل نهایی با هایلایت‌ها و یادداشت‌های هک‌شده درون کد (بدون نیاز به جاوا اسکریپت)
+  function exportModifiedHTML() {
+    const docClone = document.cloneNode(true);
+    
+    // کپی کردن محتوای تغییریافته به کلون جدید سند جهت خروجی نهایی
+    const currentMainHTML = document.querySelector('.main').innerHTML;
+    docClone.querySelector('.main').innerHTML = currentMainHTML;
+    
+    const htmlString = '<!DOCTYPE html>\n' + docClone.documentElement.outerHTML;
+    
+    const blob = new Blob([htmlString], { type: "text/html;charset=utf-8" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "pharmacology_session4_interactive_output.html";
+    link.click();
+  }
+
+  function closeAllNotesModal() {
+    document.getElementById("all-notes-modal").style.display = "none";
+  }
+
+  function escapeHTML(str) {
+    return str.replace(/[&<>'"]/g, 
+      tag => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        "'": '&#39;',
+        '"': '&quot;'
+      }[tag] || tag)
+    );
+  }
+</script>
+
+</body>
+</html>
